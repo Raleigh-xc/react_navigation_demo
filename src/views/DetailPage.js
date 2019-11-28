@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 
-class HomePage extends React.Component {
+class DetailPage extends React.Component {
   handleBtnClick = () => {
     this.props.navigation.navigate('MessagePage');
   };
@@ -9,11 +9,11 @@ class HomePage extends React.Component {
   render() {
     return (
       <View>
-        <Text>HomePage</Text>
+        <Text>DetailPage</Text>
         <Button title="go to message" onPress={this.handleBtnClick} />
       </View>
     );
   }
 }
 
-export default HomePage;
+export default DetailPage;
