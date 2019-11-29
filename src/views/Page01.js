@@ -7,7 +7,7 @@ import DetailPage from './DetailPage';
 import MessagePage from './MessagePage';
 import IconWithBadge from '../components/IconWithBadge';
 
-const TaBNavigator = createBottomTabNavigator(
+const TabNavigator = createBottomTabNavigator(
   {
     HomePage: {
       screen: HomePage,
@@ -56,4 +56,4 @@ const TaBNavigator = createBottomTabNavigator(
   },
 );
 
-export default createAppContainer(TaBNavigator);
+export default createAppContainer(TabNavigator);
