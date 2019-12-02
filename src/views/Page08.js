@@ -18,6 +18,26 @@ class Home extends React.Component {
       <View>
         <Text>Home</Text>
         <Button
+          title="go Home2"
+          onPress={() => this.props.navigation.navigate('Home2')}
+        />
+      </View>
+    );
+  }
+}
+
+class Home2 extends React.Component {
+  static navigationOptions = {
+    // title: '首页2stack-title',
+    // tabBarLabel: '首页2stack',
+  };
+
+  render() {
+    console.log('Home2 is rendered');
+    return (
+      <View>
+        <Text>Home</Text>
+        <Button
           title="go detail"
           onPress={() => this.props.navigation.navigate('Detail')}
         />
@@ -45,13 +65,31 @@ class Detail extends React.Component {
   }
 }
 
-const HomeStack = createStackNavigator({Home});
+const HomeStack = createStackNavigator(
+  {Home, Home2},
+  {
+    defaultNavigationOptions: {
+      title: '首页default',
+    },
+    // navigationOptions: {
+    //   tabBarLabel: '首页tab',
+    // },
+    navigationOptions: ({navigation, screenProps}) => {
+      console.log('navigation,screenProps', navigation, screenProps);
+      // console.log(...getActiveChildNavigationOptions(navigation, screenProps))
+      return {
+        tabBarLabel: '首页tab',
+      };
+    },
+  },
+);
+
 const DetailStack = createStackNavigator({Detail});
 
-HomeStack.navigationOptions = {
-  // title: '首页tab-title',
-  tabBarLabel: '首页tab',
-};
+// HomeStack.navigationOptions = {
+//   // title: '首页tab-title',
+//   tabBarLabel: '首页tab',
+// };
 
 const TabNavigator = createBottomTabNavigator({
   HomeStack,
